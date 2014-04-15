@@ -31,5 +31,5 @@
         "exclude": [ "/Tests" ]
     },
 
-    "target-dir": "Casper/CasperAttachmentBundle"
+    "target-dir": "Casper/AttachmentBundle"
 }
