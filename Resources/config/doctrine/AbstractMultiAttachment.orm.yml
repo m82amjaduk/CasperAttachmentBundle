@@ -1,0 +1,8 @@
+Casper\AttachmentBundle\Entity\AbstractMultiAttachment:
+    type: mappedSuperclass
+
+    fields:
+        isPrimary:
+            type: boolean
+            nullable: false
+            default: false

@@ -1,0 +1,10 @@
+Casper\AttachmentBundle\Entity\AbstractSingleAttachment:
+    type: mappedSuperclass
+
+    fields:
+        filename:
+            type: string
+            length: 255
+        path:
+            type: string
+            length: 255

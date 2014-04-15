@@ -12,9 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
 abstract class AbstractMultiAttachment extends AbstractSingleAttachment
 {
     /**
-     * @var boolean $is_primary
+     * @var boolean
      *
-     * @ORM\Column(name="is_primary", type="boolean", nullable=false, options={"default"=false})
+     * @ORM\Column(name="isPrimary", type="boolean", nullable=false, options={"default"=false})
      */
     protected $isPrimary = false;
 
