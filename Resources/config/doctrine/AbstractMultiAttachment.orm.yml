@@ -6,3 +6,8 @@ Casper\AttachmentBundle\Entity\AbstractMultiAttachment:
             type: boolean
             nullable: false
             default: false
+
+    # It should be copied and overridden in child entity
+#    manyToOne:
+#        holder:
+#            targetEntity: Casper\AttachmentBundle\Entity\AbstractAttachmentContainer

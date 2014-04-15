@@ -1,12 +1,13 @@
 Casper\AttachmentBundle\Entity\AbstractAttachmentContainer:
     type: mappedSuperclass
 
-    oneToMany:
-        attachments:
-            targetEntity: Casper\AttachmentBundle\Entity\AbstractMultiAttachment
-            mappedBy: holder
-            cascade: [persist, remove]
-            orphanRemoval: true
-            orderBy:
-                isPrimary: DESC
-                id: ASC
+    # It should be copied and overridden in child entity
+#    oneToMany:
+#        attachments:
+#            targetEntity: Casper\AttachmentBundle\Entity\AbstractMultiAttachment
+#            mappedBy: holder
+#            cascade: [persist, remove]
+#            orphanRemoval: true
+#            orderBy:
+#                isPrimary: DESC
+#                id: ASC

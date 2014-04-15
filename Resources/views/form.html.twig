@@ -1,0 +1,68 @@
+{#
+Use this line to add these widgets to your form layout
+
+{% use "CasperAttachmentBundle::form.html.twig" %}
+#}
+{% block image_attachment_widget %}
+    <div class="image-attachment-item">
+        <div class="image-container">
+            <a href="{{ form.vars.value.getWebPath }}">
+                <img src="{{ form.vars.value.getWebPath }}"/>
+                <span>{{ form.vars.value.getFileName }}</span>
+            </a>
+        </div>
+        {{ form_errors(form.isPrimary) }}
+        <div class="is-image-primary">
+            {{ form_widget(form.isPrimary, { 'attr': {'class': 'radioGroup', 'rel': 'image'} }) }}
+            {{ form_label(form.is_primary) }}
+        </div>
+
+        {{ form_widget(form.uploadedFile) }}
+
+        <a href="#" class="remove-image-btn">Delete</a>
+    </div>
+{% endblock %}
+
+{% block images_collection_widget %}
+    <div id="{{ form.vars.id }}" class="images-collection">
+        <script type="text/template"  id="{{ form.vars.id }}_prototype">
+            <div class="image-attachment-item new">
+                {{ form_widget(form.get('prototype').uploadedFile) }}
+
+                <a href="#" class="remove-image-btn">Delete</a>
+
+                {{ form_errors(form.get('prototype').isPrimary) }}
+                <div class="is-image-primary">
+                    {{ form_widget(form.get('prototype').isPrimary, { 'attr': {'class': 'radioGroup', 'rel': 'image'} }) }}
+                    {{ form_label(form.get('prototype').isPrimary) }}
+                </div>
+            </div>
+        </script>
+
+        <a href="#" class="add-image-btn">Add</a>
+        <div class="new-uploads-container"></div>
+        <p class="no-images-label" {% if form.vars.value is not empty %}style="display: none"{% endif %}>No images added</p>
+        {% for image_attachment in form.children %}
+            {{ form_widget(image_attachment) }}
+        {% endfor %}
+    </div>
+    <script type="text/javascript">
+        if (undefined == FormImagesCollection) {
+            var FormImagesCollection = {init: function(id){}};
+        }
+        FormImagesCollection.init({{ form.vars.id }});
+    </script>
+{% endblock %}
+
+{% block images_collection_row %}
+    {{ form_errors(form) }}
+    <div class="form-row">
+        <div class="form-label">
+            {{ form_label(form) }}
+        </div>
+        <div class="form-value">
+            {% set attr = attr|merge({'class': attr.class|default('') ~ (errors|length > 0 ? ' error' : '') }) %}
+            {{ form_widget(form, { 'attr': attr}) }}
+        </div>
+    </div>
+{% endblock images_collection_row %}
