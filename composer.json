@@ -31,11 +31,5 @@
         "exclude": [ "/Tests" ]
     },
 
-    "target-dir": "Casper/CasperAttachmentBundle",
-
-    "extra": {
-        "branch-alias": {
-            "dev-master": "0.1-dev"
-        }
-    }
+    "target-dir": "Casper/CasperAttachmentBundle"
 }
