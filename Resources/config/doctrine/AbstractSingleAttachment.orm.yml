@@ -1,6 +1,13 @@
 Casper\AttachmentBundle\Entity\AbstractSingleAttachment:
     type: mappedSuperclass
 
+    lifecycleCallbacks:
+        prePersist:  [ preUpload ]
+        preUpdate:   [ preUpload ]
+        postPersist: [ upload ]
+        postUpdate:  [ upload ]
+        postRemove:  [ removeUpload ]
+
     fields:
         filename:
             type: string
