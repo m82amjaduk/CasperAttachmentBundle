@@ -62,7 +62,7 @@ abstract class AbstractSingleAttachment
      */
     protected function getAbsoluteSitePath()
     {
-        return __DIR__ . '/../../../../../web';
+        return __DIR__ . '/../../../../../../web';
     }
 
     /**
